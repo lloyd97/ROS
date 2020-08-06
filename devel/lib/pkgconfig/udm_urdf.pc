@@ -1,0 +1,1 @@
+/home/lloyd/catkin_ws_lloyd/devel/.private/udm_urdf/lib/pkgconfig/udm_urdf.pc

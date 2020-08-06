@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/lloyd/catkin_ws_lloyd/devel/.private/udm_urdf/setup.sh

@@ -1,0 +1,8 @@
+prefix=/home/lloyd/catkin_ws_lloyd/devel/.private/udm_urdf
+
+Name: udm_urdf
+Description: Description of udm_urdf
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

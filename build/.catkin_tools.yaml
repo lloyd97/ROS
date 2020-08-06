@@ -1,0 +1,6 @@
+devel_space: /home/lloyd/catkin_ws_lloyd/devel
+install: false
+install_space: /home/lloyd/catkin_ws_lloyd/install
+profile: default
+source_space: /home/lloyd/catkin_ws_lloyd/src
+workspace: /home/lloyd/catkin_ws_lloyd
