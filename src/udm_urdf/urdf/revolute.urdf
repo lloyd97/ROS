@@ -50,14 +50,49 @@
         	<child link="palm"/>
         	<origin rpy="0 0 0" xyz="0.0 0.0 0.4"/>
         </joint>
+<!--forearm-->
+	<link name="forearm_link">
+	    <visual>
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+		<geometry>
+		    <cylinder radius="0.01905" length="0.0242"/>
+		</geometry>
+		<material name="Yellow2">
+		    <color rgba="0.8 0.8 0 1.0"/>
+		</material>
+	    </visual>   
+	</link>
 
-	<joint name="forearm_revolute" type="revolute">
-        	<parent link="forearm"/>
-        	<child link="palm"/>
-        	<origin rpy="0 0 0" xyz="0.0 0.0 0.4"/>
-		<limit lower="-3.14" upper="3.14" effort="10" velocity="3"/>
-		<axis xyz=" 1 0 0"/>
-        </joint>
+	<joint name="joint_forearm" type="revolute">
+	    <parent link="base_link"/>
+	    <child link="forearm_link"/>
+	    <origin xyz="0 0 0" rpy="0 0 0.4"/>
+	    <limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	    <axis xyz="0 0 1"/>
+	</joint>
+
+
+<!-- forearm 2nd part revolute-->
+
+	<link name="forearm_revolute">
+	    <visual>
+		<origin xyz="0 0 0.4" rpy="0 0 0"/>
+		<geometry>
+		    <cylinder radius="0.01905" length="0.0242"/>
+		</geometry>
+		<material name="Yellow2">
+		    <color rgba="0.8 0.8 0 1.0"/>
+		</material>
+	    </visual>   
+	</link>
+
+	<joint name="joint_forearm_revolute" type="revolute">
+	    <parent link="base_link"/>
+	    <child link="forearm_revolute"/>
+	    <origin xyz="0 0 0" rpy="0 0 0"/>
+	    <limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	    <axis xyz="0 0 1"/>
+	</joint>
 
 <!-- first -->
 
@@ -77,6 +112,28 @@
         	<origin rpy="0 0 0" xyz="0.0 0.0 0.8"/>
         </joint>
 
+<!-- first finger 1st part revolute-->
+
+	<link name="finger_one_link">
+	    <visual>
+		<origin xyz="0 0 1.2" rpy="0 0 0"/>
+		<geometry>
+		    <cylinder radius="0.01905" length="0.0242"/>
+		</geometry>
+		<material name="Yellow2">
+		    <color rgba="0.8 0.8 0 1.0"/>
+		</material>
+	    </visual>   
+	</link>
+
+	<joint name="joint_finger_one" type="revolute">
+	    <parent link="palm"/>
+	    <child link="finger_one_link"/>
+	    <origin xyz="0 0 0.8" rpy="0 0 0"/>
+	    <limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	    <axis xyz="0 0 1"/>
+	</joint>
+
 <!-- first finger 2nd part -->
 	<link name="first_finger_part_two">
 		<visual>
@@ -93,6 +150,29 @@
         	<child link="first_finger_part_two"/>
         	<origin  rpy="0.4 0 0" xyz="0.0 0.0 0.4"/>
         </joint>
+
+<!-- first finger 2nd part revolute-->
+
+	<link name="finger_one_part_two_link">
+	    <visual>
+		<origin xyz="0 0 1.6" rpy="0 0 0"/>
+		<geometry>
+		    <cylinder radius="0.01905" length="0.0242"/>
+		</geometry>
+		<material name="Yellow2">
+		    <color rgba="0.8 0.8 0 1.0"/>
+		</material>
+	    </visual>   
+	</link>
+
+	<joint name="joint_finger_one_part_two" type="revolute">
+	    <parent link="first_finger"/>
+	    <child link="finger_one_part_two_link"/>
+	    <origin xyz="0 0 0.8" rpy="0 0 0"/>
+	    <limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	    <axis xyz="0 0 1"/>
+	</joint>
+
 <!-- first finger 3rd part -->
 	<link name="first_finger_part_three">
 		<visual>
@@ -109,6 +189,28 @@
         	<child link="first_finger_part_three"/>
         	<origin  rpy="0.2 0 0" xyz="0.0 0.0 0.3"/>
         </joint>
+
+<!-- first finger 3rd part revolute-->
+
+	<link name="finger_one_part_three_link">
+	    <visual>
+		<origin xyz="0 -0.125 1.875" rpy="0.5 0 0"/>
+		<geometry>
+		    <cylinder radius="0.01905" length="0.0242"/>
+		</geometry>
+		<material name="Yellow2">
+		    <color rgba="0.8 0.8 0 1.0"/>
+		</material>
+	    </visual>   
+	</link>
+
+	<joint name="joint_finger_one_part_three" type="revolute">
+	    <parent link="first_finger_part_two"/>
+	    <child link="finger_one_part_three_link"/>
+	    <origin xyz="0 0 0" rpy="0 0 0"/>
+	    <limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	    <axis xyz="0 0 1"/>
+	</joint>
 
 <!-- second finger--> 
 
@@ -127,6 +229,29 @@
         	<child link="second_finger"/>
         	<origin xyz="0.2 0.0 0.8"/>
         </joint>
+
+<!-- second finger 1st part revolute-->
+
+	<link name="finger_two_link">
+	    <visual>
+		<origin xyz="0.2 0 1.2" rpy="0 0 0"/>
+		<geometry>
+		    <cylinder radius="0.01905" length="0.0242"/>
+		</geometry>
+		<material name="Yellow2">
+		    <color rgba="0.8 0.8 0 1.0"/>
+		</material>
+	    </visual>   
+	</link>
+
+	<joint name="joint_finger_two" type="revolute">
+	    <parent link="palm"/>
+	    <child link="finger_two_link"/>
+	    <origin xyz="0 0 0.8" rpy="0 0 0"/>
+	    <limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	    <axis xyz="0 0 1"/>
+	</joint>
+
 <!-- second finger 2nd part --> 
 	<link name="second_finger_part_two">
 		<visual>
@@ -143,6 +268,29 @@
         	<child link="second_finger_part_two"/>
         	<origin  rpy="0.3 0 0" xyz="0.0 0.0 0.4"/>
         </joint>
+
+<!-- second finger 2nd part revolute-->
+
+	<link name="finger_two_part_two_link">
+	    <visual>
+		<origin xyz="0.2 0 1.6" rpy="0 0 0"/>
+		<geometry>
+		    <cylinder radius="0.01905" length="0.0242"/>
+		</geometry>
+		<material name="Yellow2">
+		    <color rgba="0.8 0.8 0 1.0"/>
+		</material>
+	    </visual>   
+	</link>
+
+	<joint name="joint_finger_two_part_two" type="revolute">
+	    <parent link="second_finger"/>
+	    <child link="finger_two_part_two_link"/>
+	    <origin xyz="0 0 0.8" rpy="0 0 0"/>
+	    <limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	    <axis xyz="0 0 1"/>
+	</joint>
+
 <!-- second finger 3rd part --> 
 	<link name="second_finger_part_three">
 		<visual>
@@ -159,6 +307,29 @@
         	<child link="second_finger_part_three"/>
         	<origin  rpy="0.2 0 0" xyz="0.0 0.0 0.3"/>
         </joint>
+
+<!-- second finger 3rd part revolute-->
+
+	<link name="finger_two_part_three_link">
+	    <visual>
+		<origin xyz="0.2 -0.1 1.9" rpy="0.5 0 0"/>
+		<geometry>
+		    <cylinder radius="0.01905" length="0.0242"/>
+		</geometry>
+		<material name="Yellow2">
+		    <color rgba="0.8 0.8 0 1.0"/>
+		</material>
+	    </visual>   
+	</link>
+
+	<joint name="joint_finger_two_part_three" type="revolute">
+	    <parent link="second_finger_part_three"/>
+	    <child link="finger_two_part_three_link"/>
+	    <origin xyz="0 0 0" rpy="0 0 0"/>
+	    <limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	    <axis xyz="0 0 1"/>
+	</joint>
+
 <!-- third finger -->
 	<link name="third_finger">
 		<visual>
@@ -175,6 +346,29 @@
         	<child link="third_finger"/>
         	<origin xyz="-0.2 0.0 0.8"/>
         </joint>
+
+<!-- third finger 1st part revolute-->
+
+	<link name="finger_three_link">
+	    <visual>
+		<origin xyz="-0.2 0 1.2" rpy="0 0 0"/>
+		<geometry>
+		    <cylinder radius="0.01905" length="0.0242"/>
+		</geometry>
+		<material name="Yellow2">
+		    <color rgba="0.8 0.8 0 1.0"/>
+		</material>
+	    </visual>   
+	</link>
+
+	<joint name="joint_finger_three" type="revolute">
+	    <parent link="palm"/>
+	    <child link="finger_three_link"/>
+	    <origin xyz="0 0 0.8" rpy="0 0 0"/>
+	    <limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	    <axis xyz="0 0 1"/>
+	</joint>
+
 <!-- third finger 2nd part --> 
 	<link name="third_finger_part_two">
 		<visual>
@@ -191,7 +385,31 @@
         	<child link="third_finger_part_two"/>
         	<origin  rpy="0.3 0 0" xyz="0.0 0.0 0.4"/>
         </joint>
+
+<!-- third finger 2nd part revolute-->
+
+	<link name="finger_three_part_two_link">
+	    <visual>
+		<origin xyz="-0.2 0 1.6" rpy="0 0 0"/>
+		<geometry>
+		    <cylinder radius="0.01905" length="0.0242"/>
+		</geometry>
+		<material name="Yellow2">
+		    <color rgba="0.8 0.8 0 1.0"/>
+		</material>
+	    </visual>   
+	</link>
+
+	<joint name="joint_finger_three_part_two" type="revolute">
+	    <parent link="third_finger"/>
+	    <child link="finger_three_part_two_link"/>
+	    <origin xyz="0 0 0.8" rpy="0 0 0"/>
+	    <limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	    <axis xyz="0 0 1"/>
+	</joint>
+
 <!-- third finger 3rd part --> 
+
 	<link name="third_finger_part_three">
 		<visual>
 			<origin rpy="0 0 0" xyz="0 0.0 0.1"/>
@@ -207,6 +425,29 @@
         	<child link="third_finger_part_three"/>
         	<origin  rpy="0.2 0 0" xyz="0.0 0.0 0.3"/>
         </joint>
+
+<!-- third finger 3rd part revolute-->
+
+	<link name="finger_three_part_three_link">
+	    <visual>
+		<origin xyz="-0.2 -0.1 1.9" rpy="0.5 0 0"/>
+		<geometry>
+		    <cylinder radius="0.01905" length="0.0242"/>
+		</geometry>
+		<material name="Yellow2">
+		    <color rgba="0.8 0.8 0 1.0"/>
+		</material>
+	    </visual>   
+	</link>
+
+	<joint name="joint_finger_three_part_three" type="revolute">
+	    <parent link="third_finger_part_three"/>
+	    <child link="finger_three_part_three_link"/>
+	    <origin xyz="0 0 0" rpy="0 0 0"/>
+	    <limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	    <axis xyz="0 0 1"/>
+	</joint>
+
 <!-- thumb -->
 
 	<link name="thumb">
@@ -224,6 +465,29 @@
         	<child link="thumb"/>
         	<origin rpy="0 0 0" xyz="0.3 0.0 0.3"/>
         </joint>
+
+<!-- thumb 1st part revolute-->
+
+	<link name="thumb_joint_revolute">
+	    <visual>
+		<origin xyz="0.3 0 0.7" rpy="0 0.9 0"/>
+		<geometry>
+		    <cylinder radius="0.01905" length="0.0242"/>
+		</geometry>
+		<material name="Yellow2">
+		    <color rgba="0.8 0.8 0 1.0"/>
+		</material>
+	    </visual>   
+	</link>
+
+	<joint name="joint_thumb__revolute" type="revolute">
+	    <parent link="palm"/>
+	    <child link="thumb_joint_revolute"/>
+	    <origin xyz="0 0 0" rpy="0 0 0"/>
+	    <limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	    <axis xyz="0 0 1"/>
+	</joint>
+
 <!-- thumb 2nd part-->
 	<link name="thumb_part_two">
 		<visual>
@@ -239,12 +503,45 @@
         	<child link="thumb_part_two"/>
         	<origin  rpy="0.5 -1.5 0" xyz="0.2 0.0 0.2"/>
         </joint>
+
+<!-- thumb 2nd part revolute-->
+
+	<link name="thumb_2nd_part_joint_revolute">
+	    <visual>
+		<origin xyz="0.5 0 0.9" rpy="0.5 0.9 0"/>
+		<geometry>
+		    <cylinder radius="0.01905" length="0.0242"/>
+		</geometry>
+		<material name="Yellow2">
+		    <color rgba="0.8 0.8 0 1.0"/>
+		</material>
+	    </visual>   
+	</link>
+
+	<joint name="joint_2nd_part_thumb__revolute" type="revolute">
+	    <parent link="palm"/>
+	    <child link="thumb_2nd_part_joint_revolute"/>
+	    <origin xyz="0 0 0" rpy="0 0 0"/>
+	    <limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	    <axis xyz="0 0 1"/>
+	</joint>
+
 </robot>
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+<!--roslaunch udm_urdf visualize_urdf.launch model:='$(find udm_urdf)/urdf/revolute.urdf'-->
 
 
 
