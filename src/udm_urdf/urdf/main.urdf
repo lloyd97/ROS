@@ -50,14 +50,7 @@
         	<child link="palm"/>
         	<origin rpy="0 0 0" xyz="0.0 0.0 0.4"/>
         </joint>
-	
-	<joint name="forearm_revolute" type="revolute">
-        	<parent link="base_link"/>
-        	<child link="palm"/>
-        	<origin rpy="0 0 0" xyz="0.0 0.0 0.4"/>
-		<limit lower="-3.14" upper="3.14" effort="10" velocity="3"/>
-		<axis xyz=" 1 0 0"/>
-        </joint>
+
 
 <!-- first -->
 
