@@ -35,6 +35,7 @@
 	</link>
 	
 <!-- palm -->
+
 	<link name="palm">
 		<visual>
 		<origin rpy="0.0 0 0" xyz="0.0 0 0.4"/>
@@ -56,7 +57,7 @@
         	<child link="palm"/>
         	<origin rpy="0 0 0" xyz="0.0 0.0 0.4"/>
 		<limit lower="-3.14" upper="3.14" effort="10" velocity="3"/>
-		<axis xyz=" 0 1 0"/>
+		<axis xyz=" 0 0 1"/>
         </joint>
 
 <!-- first -->
@@ -80,6 +81,7 @@
         </joint>
 
 <!-- first finger 2nd part -->
+
 	<link name="first_finger_part_two">
 		<visual>
 			<origin rpy="0 0 0" xyz="0 0.0 0.15"/> <!---->
@@ -97,7 +99,9 @@
 		<axis xyz="1 0 0"/>
 		<limit effort ="1000.0" lower="-1.0" upper="0" velocity="0.5"/>
         </joint>
+
 <!-- first finger 3rd part -->
+
 	<link name="first_finger_part_three">
 		<visual>
 			<origin rpy="0 0 0" xyz="0 0 0.1"/> 
@@ -115,6 +119,24 @@
 		<axis xyz="1 0 0"/>
 		<limit effort ="1000.0" lower="-0.5" upper="0" velocity="0.5"/>
         </joint>
+
+<!-- head finger one -->
+
+	 <link name="head_finger_one">
+	    <visual>
+	      <geometry>
+		<sphere radius="0.05"/>
+	      </geometry>
+	    <material name="white"/>
+	    </visual>
+	  </link>
+
+	  <joint name="head_finger_one_joint" type="fixed">
+	    <parent link="first_finger_part_three"/>
+	    <child link="head_finger_one"/>
+	    <origin xyz="0 0 0.2"/>
+	  </joint>
+
 
 <!-- second finger--> 
 
@@ -135,7 +157,9 @@
 		<axis xyz="1 0 0"/>
 		<limit effort ="1000.0" lower="-1.0" upper="1.0" velocity="0.5"/>
         </joint>
+
 <!-- second finger 2nd part --> 
+
 	<link name="second_finger_part_two">
 		<visual>
 			<origin rpy="0 0 0" xyz="0 0.0 0.15"/>
@@ -153,7 +177,9 @@
 		<axis xyz="1 0 0"/>
 		<limit effort ="1000.0" lower="-1.0" upper="1.0" velocity="0.5"/>
         </joint>
+
 <!-- second finger 3rd part --> 
+
 	<link name="second_finger_part_three">
 		<visual>
 			<origin rpy="0 0 0" xyz="0 0.0 0.1"/>
@@ -171,7 +197,27 @@
 		<axis xyz="1 0 0"/>
 		<limit effort ="1000.0" lower="-1.0" upper="1.0" velocity="0.5"/>
         </joint>
+
+<!-- head finger two -->
+
+	 <link name="head_finger_two">
+	    <visual>
+	      <geometry>
+		<sphere radius="0.05"/>
+	      </geometry>
+	    <material name="white"/>
+	    </visual>
+	  </link>
+
+	  <joint name="head_finger_two_joint" type="fixed">
+	    <parent link="second_finger_part_three"/>
+	    <child link="head_finger_two"/>
+	    <origin xyz="0 0 0.2"/>
+	  </joint>
+
+
 <!-- third finger -->
+
 	<link name="third_finger">
 		<visual>
 			<origin rpy="0 0 0" xyz="0 0.0 0.2"/>
@@ -189,7 +235,9 @@
 		<axis xyz="1 0 0"/>
 		<limit effort ="1000.0" lower="-1.0" upper="1.0" velocity="0.5"/>
         </joint>
+
 <!-- third finger 2nd part --> 
+
 	<link name="third_finger_part_two">
 		<visual>
 			<origin rpy="0 0 0" xyz="0 0.0 0.15"/>
@@ -207,7 +255,9 @@
 		<axis xyz="1 0 0"/>
 		<limit effort ="1000.0" lower="-1.0" upper="1.0" velocity="0.5"/>
         </joint>
+
 <!-- third finger 3rd part --> 
+
 	<link name="third_finger_part_three">
 		<visual>
 			<origin rpy="0 0 0" xyz="0 0.0 0.1"/>
@@ -225,6 +275,24 @@
 		<axis xyz="1 0 0"/>
 		<limit effort ="1000.0" lower="-1.0" upper="1.0" velocity="0.5"/>
         </joint>
+
+<!-- head finger three -->
+
+	 <link name="head_finger_three">
+	    <visual>
+	      <geometry>
+		<sphere radius="0.05"/>
+	      </geometry>
+	    <material name="white"/>
+	    </visual>
+	  </link>
+
+	  <joint name="head_finger_three_joint" type="fixed">
+	    <parent link="third_finger_part_three"/>
+	    <child link="head_finger_three"/>
+	    <origin xyz="0 0 0.2"/>
+	  </joint>
+
 <!-- thumb -->
 
 	<link name="thumb">
@@ -244,7 +312,9 @@
 		<axis xyz="1 0 0"/>
 		<limit effort ="1000.0" lower="-1.0" upper="1.0" velocity="0.5"/>
         </joint>
+
 <!-- thumb 2nd part-->
+
 	<link name="thumb_part_two">
 		<visual>
 			<origin rpy="0.2 1 0" xyz="0.1 0 0.05"/>
@@ -261,13 +331,27 @@
 		<axis xyz="1 0 0"/>
 		<limit effort ="1000.0" lower="-1.0" upper="1.0" velocity="0.5"/>
         </joint>
+
+<!-- head thumb -->
+
+	 <link name="head_thumb">
+	    <visual>
+	      <geometry>
+		<sphere radius="0.05"/>
+	      </geometry>
+	    <material name="white"/>
+	    </visual>
+	  </link>
+
+	  <joint name="head_thumb_joint" type="fixed">
+	    <parent link="thumb_part_two"/>
+	    <child link="head_thumb"/>
+	    <origin rpy="0 0 0" xyz="0.175 -0.02 0.1"/>
+	  </joint>
+
 </robot>
 
 
 <!--roslaunch udm_urdf visualize_urdf.launch model:='$(find udm_urdf)/urdf/revolute.urdf'-->
-
-
-
-
 
 
